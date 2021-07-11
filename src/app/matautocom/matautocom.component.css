@@ -1,0 +1,15 @@
+.boldOptions {
+    font-weight: bold;
+}
+
+.coloroptions {
+    color: yellow;
+}
+
+.mat-option-text {
+    color: blue !important;
+}
+
+p {
+    color: red;
+}

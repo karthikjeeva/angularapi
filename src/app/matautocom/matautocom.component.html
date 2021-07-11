@@ -1,0 +1,16 @@
+<label>Search names</label>
+<input type="text"
+       placeholder="search name"
+       aria-label="Number"
+       matInput
+       [formControl]="myControl"
+       [matAutocomplete]="auto">
+     
+<mat-autocomplete #auto="matAutocomplete" [matAutocompleteDisabled] autoActiveFirstOption="firstopt" [class]= "classList" (opened)="isOpened()" (closed)="isClosed()" (optionSelected)="optionSelectedLocal($event)" disableRipple [panelWidth]="item" showPanel>
+    <mat-option *ngFor="let option of filteredOptions | async" (click)="optionSelect(option)" [value]="option">
+      {{option}}
+    </mat-option>
+</mat-autocomplete>
+
+<p>Kar</p>
+{{firstopt}}
