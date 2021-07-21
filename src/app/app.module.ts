@@ -8,6 +8,7 @@ import { MatautocomComponent } from './matautocom/matautocom.component';
 import { ApproutingModule } from './approuting/approuting.module';
 import { AngularmaterialModule } from './angularmaterial/angularmaterial.module';
 import { MatautoobjectComponent } from './matautoobject/matautoobject.component';
+import { MatautotriggerComponent } from './matautotrigger/matautotrigger.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatautoobjectComponent } from './matautoobject/matautoobject.component'
     AppComponent,
     HomeComponent,
     MatautocomComponent,
-    MatautoobjectComponent
+    MatautoobjectComponent,
+    MatautotriggerComponent
   ],
   bootstrap: [
     AppComponent
