@@ -1,8 +1,8 @@
 <h1>Multiple Autocomplete</h1>
 
 <form [formGroup]="namesForm" (ngSubmit)="onSubmit()">
-  <div formArrayName="names">
-    <div *ngFor="let name of namesForm.get('item').controls; let i=index">
+  <div formArrayName="items">
+    <div *ngFor="let name of namesForm.get('items').controls; let i=index">
         <div [formGroupName]="i">
             {{i}}
             <label>Search names</label>
@@ -10,14 +10,14 @@
               placeholder="search name"
               aria-label="Number"
               matInput
-              [formControl]="myControl"
+              formControlName="name"
               [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete"  [displayWith]="displayFn" autoActiveFirstOption>
-                <mat-option *ngFor="let option of filteredOptions | async"  [value]="option">
+            <mat-autocomplete #auto="matAutocomplete"  [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions[i] | async"  [value]="option">
                   {{option.name}}
                 </mat-option>
             </mat-autocomplete>
-            <button (click)="removeSkill(i)">Remove</button>
+            <button (click)="removeItem(i)">Remove</button>
         </div>
     </div>
   </div>
@@ -29,8 +29,8 @@
 
 
 <p>
-  <button type="button" (click)="addSkills()">Add</button>
+  <button type="button" (click)="addNewItem()">Add</button>
 </p>
 
-{{this.skillsForm.value|json}}
+{{this.namesForm.value|json}}
 

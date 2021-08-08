@@ -27,7 +27,7 @@ export class MultiautocompleteComponent {
  
   createForm() {
     this.namesForm = this.fb.group ({
-      names: this.initItems()
+      items: this.initItems()
     })
 
     this.ManageNameControl(0);
@@ -76,24 +76,28 @@ export class MultiautocompleteComponent {
 
   private _filter(name: string): Person[] {
     const filterValue = name.toLowerCase();
-
     return this.names.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  newAutoComplete(): FormGroup {
-    return this.fb.group({
-     name: ''
-    })
+
+  addNewItem() {
+    const controls = <FormArray>this.namesForm.controls['items'];
+    let formGroup = this.fb.group({
+      name: ['', [Validators.required]],
+    });
+    controls.push(formGroup);
+    // Build the account Auto Complete values
+    this.ManageNameControl(controls.length - 1);
+
+  }
+   removeItem(i: number) {
+    const controls = <FormArray>this.namesForm.controls['items'];
+    controls.removeAt(i);
+    // remove from filteredOptions too.
+    this.filteredOptions.splice(i, 1);
+
   }
 
-
-  addnames() {
-    //this.names.push(this.newAutoComplete());
-  }
-
-  removeSkill(i: number) {
-    //this.names.removeAt(i);
-  }
 
   onSubmit() {
     console.log(this.namesForm.value);
