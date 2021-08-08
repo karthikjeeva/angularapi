@@ -9,6 +9,7 @@ import { ApproutingModule } from './approuting/approuting.module';
 import { AngularmaterialModule } from './angularmaterial/angularmaterial.module';
 import { MatautoobjectComponent } from './matautoobject/matautoobject.component';
 import { MatautotriggerComponent } from './matautotrigger/matautotrigger.component';
+import { MultiautocompleteComponent } from './multiautocomplete/multiautocomplete.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatautotriggerComponent } from './matautotrigger/matautotrigger.compone
     HomeComponent,
     MatautocomComponent,
     MatautoobjectComponent,
-    MatautotriggerComponent
+    MatautotriggerComponent,
+    MultiautocompleteComponent
   ],
   bootstrap: [
     AppComponent
